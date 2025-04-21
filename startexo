@@ -55,9 +55,20 @@ echo "Server dapat dikunjungi di localhost:9988"
 echo "Atau [ALAMAT IP LAN]:9988"
 echo ""
 echo "Tekan Ctrl + C untuk mematikan server"
+
 cd cbt
-echo ""
+
+echo "Memulai PostgreSQL..."
 pg_ctl -D ./database -l ./database.log start > /dev/null 2>&1
+
+# Atur trap untuk cleanup saat keluar
 trap cleanup SIGINT SIGTERM EXIT
+
+# Menjalankan Cloudflare Tunnel sebelum server
+cloudflared tunnel run --token=eyJhIjoiNTVlZDAyMTg1MzY3ODA2MTI1NTMzMmRmZmYwM2RiNTYiLCJ0IjoiMDg5NGQwMjAtY2IxOC00MWExLWE5YzgtMDkwOWVhNGJiNGVhIiwicyI6IlkyUTFOR1V4TnprdE1XSTFOaTAwTjJGa0xUa3dZVFl0T1dGbFlqRTBaV1V6TldabCJ9 &
+
+echo "Cloudflare Tunnel dijalankan."
+
+# Jalankan aplikasi utama
 chmod +x ./main-amd64
 qemu-x86_64 -L ./tzdata ./main-amd64

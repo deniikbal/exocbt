@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Ekstraordinary CBT 4 Rosetta di Termux
 Instalasi [Ekstraordinary CBT](https://ekstraordinary.com/) di termux tanpa VPS
 
@@ -40,3 +41,6 @@ curl -s https://raw.githubusercontent.com/dfbro/exocbt-termux/refs/heads/main/up
 
 1. [Shellrean Developer](https://github.com/shellrean-dev)
 2. [Termux](https://github.com/termux/termux-app)
+=======
+# exocbt
+>>>>>>> 095661d303d08061f2c285f75d633697ac0c41f2
