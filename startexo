@@ -10,9 +10,18 @@ ENV_FILE="./cbt/.env"
 KEY="SERVER_SECRET_LICENSE_KEY"
 KEY_FILE="./cbt/database/.key"
 
-# Menjalankan Cloudflare Tunnel sebelum server
-cloudflared tunnel run --token=eyJhIjoiNTVlZDAyMTg1MzY3ODA2MTI1NTMzMmRmZmYwM2RiNTYiLCJ0IjoiMDg5NGQwMjAtY2IxOC00MWExLWE5YzgtMDkwOWVhNGJiNGVhIiwicyI6IlkyUTFOR1V4TnprdE1XSTFOaTAwTjJGa0xUa3dZVFl0T1dGbFlqRTBaV1V6TldabCJ9 &
-echo "Cloudflare Tunnel dijalankan."
+# Cek apakah cloudflared sudah terpasang
+cloudflared tunnel run --token=eyJhIjoiNTVlZDAyMTg1MzY3ODA2MTI1NTMzMmRmZmYwM2RiNTYiLCJ0IjoiMDg5NGQwMjAtY2IxOC00MWExLWE5YzgtMDkwOWVhNGJiNGVhIiwicyI6IlkyUTFOR1V4TnprdE1XSTFOaTAwTjJGa0xUa3dZVFl0T1dGbFlqRTBaV1V6TldabCJ9 > ./cloudflared.log 2>&1 &
+sleep 2
+
+if ! pgrep -f "cloudflared tunnel run" > /dev/null; then
+    echo "❌ Cloudflare Tunnel gagal dijalankan. Cek log berikut:"
+    cat cloudflared.log
+    exit 1
+else
+    echo "✅ Cloudflare Tunnel berhasil dijalankan."
+fi
+
 
 # Check if DNS is listening on [::1]:53
 if ! nc -z -u -w1 ::1 53; then

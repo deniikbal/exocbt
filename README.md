@@ -16,7 +16,7 @@ apt update && apt install curl -y
 2. Simpel, hanya perlu:
 
 ```
-curl -s https://raw.githubusercontent.com/dfbro/exocbt-termux/refs/heads/main/setup.sh | bash
+curl -s https://raw.githubusercontent.com/deniikbal/exocbt/refs/heads/main/setup.sh | bash
 ```
 
 ## Menjalankan
