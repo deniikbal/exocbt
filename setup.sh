@@ -4,7 +4,8 @@ clear
 ## instalasi dependensi
 echo "instalasi dependensi"
 apt update
-apt install -y qemu-user-x86-64 libdw unzip postgresql wget tar gzip netcat-openbsd cloudflared
+apt install -y qemu-user-x86-64 libdw unzip postgresql wget tar gzip netcat-openbsd
+pkg install -y cloudflared
 
 clear
 ## download exo cbt dan inisialisasi folder
