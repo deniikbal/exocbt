@@ -25,7 +25,7 @@ fi
 
 # Check if DNS is listening on [::1]:53
 if ! nc -z -u -w1 ::1 53; then
-    echo "Error: DNS tidak aktif di [::1]:53, tolong aktifkan hotspot."
+    echo "❌ Error: DNS tidak aktif di [::1]:53, tolong aktifkan hotspot."
     exit 1
 fi
 
