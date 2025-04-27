@@ -33,7 +33,7 @@ dari 4.5.0 -> 4.6.0
 
 
 ```
-curl -s https://raw.githubusercontent.com/dfbro/exocbt-termux/refs/heads/main/upgrade | bash
+curl -s https://raw.githubusercontent.com/deniikbal/exocbt/refs/heads/main/upgrade | bash
 ```
 
 ## Credit
